@@ -1,4 +1,4 @@
-POC_0528
-========
+RSI
+===
 
-RS-485 driver for Proof of Concept checkpoint
+RS-485 driver 
