@@ -18,9 +18,9 @@ void delayuS(uInt32_t uSec)
 	nanosleep(&ts, NULL);
 }
 
-int uptimeInSec( char *timeString)
+uInt16_t uptimeInSec( char *timeString)
 {
-	int num = 0, fd = open("/proc/uptime", O_RDONLY );
+	uInt16_t num = 0, fd = open("/proc/uptime", O_RDONLY );
 	if (fd > 0) {
 		num = read( fd, timeString, 30 );
 		close(fd);

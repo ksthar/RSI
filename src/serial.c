@@ -23,7 +23,7 @@
 #include "gpio.h"
 #include "misc.h"
 
-int rs485_rcvEnable(void)
+uInt16_t rs485_rcvEnable(void)
 {
 	//RS485 RE/ (APx4 receive)
 	printf("485 rcv en\n");
@@ -31,21 +31,21 @@ int rs485_rcvEnable(void)
 	delayuS(25);	//let it settle...
 }
 
-int rs485_rcvDisable(void)
+uInt16_t rs485_rcvDisable(void)
 {
 	//RS485 RE/ (APx4 receive)
 	//gpio_setValue(RS485_RE, 1);	//Rx disabled
 	delayuS(25);	//let it settle...
 }
 
-int rs485_xmitEnable(void)
+uInt16_t rs485_xmitEnable(void)
 {
 	//RS485 DE (APx4 transmit)
 	//gpio_setValue(RS485_DE, 1);	//Tx enabled
 	delayuS(25);	//let it settle...
 }
 
-int rs485_xmitDisable(void)
+uInt16_t rs485_xmitDisable(void)
 {
 	//RS485 DE (APx4 transmit)
 	//gpio_setValue(RS485_DE, 0);	//Tx disabled
@@ -58,10 +58,10 @@ int rs485_xmitDisable(void)
 //		buffer: receive buffer
 //
 //returns bytes received
-int rs485_read( int fd, char *buffer, int requested )
+uInt16_t rs485_read( uInt16_t fd, char *buffer, uInt16_t requested )
 {
 	if (fd == -1) return -1;
-	int actual;
+	uInt16_t actual, i;
 
 	//gpio_setValue(RS485_LED_RED, 0);		//FIXME: replace with LED thread to blink LEDs
 
@@ -70,6 +70,11 @@ int rs485_read( int fd, char *buffer, int requested )
 	//gpio_setValue(RS485_RE, 0);	//Rx enabled
 
 	actual = read(fd, buffer, requested);	//blocking read
+	printf( "rs485_read bytes: %d -> ", actual );
+	for (i=0; i < actual; i++) {
+		printf("%02x ", buffer[i]);
+	}
+	printf("\n");
 	//gpio_setValue(RS485_LED_RED, 1);
 	return actual;
 }
@@ -80,10 +85,10 @@ int rs485_read( int fd, char *buffer, int requested )
 //		buffer: transmit buffer
 //
 //returns bytes sent
-int rs485_write( int fd, char *buffer, int requested )
+uInt16_t rs485_write( uInt16_t fd, char *buffer, uInt16_t requested )
 {
 	if (fd == -1) return -1;
-	int actual;
+	uInt16_t actual;
 
 	//gpio_setValue(RS485_LED_GREEN, 1);		//FIXME: replace with LED thread to blink LEDs
 
@@ -99,7 +104,7 @@ int rs485_write( int fd, char *buffer, int requested )
 	return actual;
 }
 
-int rs485_open(void)
+uInt16_t rs485_open(void)
 {
 	//export gpios 41 (RS485 RE/) & 42 (RS485 DE) so userspace can control RS485 transceiver output enables:
 	/*
@@ -119,10 +124,10 @@ int rs485_open(void)
 	//----- SETUP AUART 2 -----
 	//-------------------------
 	//before running, assumes GPIO pins 41 and 42 are already set to proper values
-	int uart2_fd = -1;
-	int count;
+	uInt16_t uart2_fd = -1;
+	uInt16_t count;
 
-	//OPEN THE UARTint rs485_open(void)
+	//OPEN THE UART uInt16_t rs485_open(void)
 
 	//The flags (defined in fcntl.h):
 	//	Access modes (use 1 of these):
@@ -192,7 +197,7 @@ int rs485_open(void)
 
 #if 0
 	struct serial_struct serial;
-	int ret = ioctl(uart2_fd, TIOCGSERIAL, &serial);
+	uInt16_t ret = ioctl(uart2_fd, TIOCGSERIAL, &serial);
 
 	printf("fifo size = %d\n", serial.xmit_fifo_size);
 
@@ -205,7 +210,7 @@ int rs485_open(void)
 	return uart2_fd;
 }
 
-int rs485_close(int fd)
+uInt16_t rs485_close(uInt16_t fd)
 {
 	close(fd);
 	/*
@@ -217,7 +222,7 @@ int rs485_close(int fd)
 
 }
 
-void rs485UartVminVtime( int fd, int vmin, int vtime )
+void rs485UartVminVtime( uInt16_t fd, uInt16_t vmin, uInt16_t vtime )
 {
 	struct termios options;
 

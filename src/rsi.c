@@ -24,28 +24,31 @@
 
 #define RSI_DEBUG
 
-int rsiOpen(void)
+uInt16_t rsiOpen(void)
 {
 	crcInit();
 	return rs485_open();
 }
 
-int rsiClose(int fd)
+uInt16_t rsiClose(uInt16_t fd)
 {
 	rs485_close(fd);
 }
 
-void dbg_print_msg( int write, char *buf, int len )
+void dbg_print_msg( uInt16_t write, char *buf, uInt16_t len )
 {
 #ifdef RSI_DEBUG
-	int i;
+	uInt16_t i;
 	if (write)
 	   printf("RS485 msg write: ");
 	else
 	   printf("RS485 msg read: ");
 
-	for (i=0; i < len; i++)
-		printf("%02x ", buf[i]);
+	for (i=0; i < len; i++) {
+		// HN: is this a type issue?
+		//printf("%02x ", (buf[i] & 0x000000ff) );
+		printf("%02x ", buf[i] );
+	}
 	printf("\n");
 #endif
 }
@@ -56,7 +59,7 @@ void dbg_print_msg( int write, char *buf, int len )
 //		numBytes:	# bytes to send
 //
 //returns bytes received. returns only if valid frame received.
-int rsiWrite( int fd, char *buffer, int numBytes )
+uInt16_t rsiWrite( uInt16_t fd, char *buffer, uInt16_t numBytes )
 {
 	if (fd == -1) return -1;
 	rs485_xmitEnable();		//half duplex mode, enable Tx
@@ -75,10 +78,11 @@ int rsiWrite( int fd, char *buffer, int numBytes )
 //		buffer: receive buffer
 //
 //returns bytes received. returns only if valid frame received.
-int rsiRead( int fd, char *buffer )
+uInt16_t rsiRead( uInt16_t fd, char *buffer )
 {
 	if (fd == -1) return -1;
-	int count, validRsiFrame = STATUS_FAILURE;
+	uInt16_t count;
+ 	sInt32_t validRsiFrame = STATUS_FAILURE;
 
 	tcflush(fd, TCIFLUSH);	//in half duplex mode, ignore chars we sent and may have received...
 	rs485_rcvEnable();
@@ -112,13 +116,27 @@ int rsiRead( int fd, char *buffer )
 
 		//KERNEL BUG?  current timeout appears to be about 2 seconds (?)
 		count = rs485_read(fd, &buffer[1], RSI_MAX_FRAME_SIZE-1); //should return after 0.1 sec
-		printf("rd = %d\n", count+1);
+		printf("total bytes counted = %d\n", count+1);
+
+		/*----------- Debugging ------------------*/
+		// The idea here is to create a new buffer with the masked contents of the first.
+		uInt16_t i;
+		char newBuffer[RSI_MAX_FRAME_SIZE];
+		char *newBuf = &newBuffer[0];
+		puts( "loading new buffer..." );
+		for (i=0; i < count; i++) {
+			// HN: is this a type issue?
+			newBuffer[i] = (buffer[i] & 0x000000ff);
+		}
+		puts( "...done." );
+		//-------------------------------------------*/
 
 		//RS485 Bytes received
 		dbg_print_msg( 0, buffer, count+1 );
 
 		//validate message CRC/checksum
 		validRsiFrame = rsiValidateFrame( &buffer[1], count);
+
 	} //waiting for validRsiFrame
 
 	//gpio_setValue( RS485_LED_RED, 0 );
@@ -129,7 +147,7 @@ int rsiRead( int fd, char *buffer )
 //inputs:
 //	buffer:  received RSI frame, starting with address field
 //	msgLength: RSI message length, not including SOF.  Includes CRC/checksum byte(s)
-sInt32_t rsiValidateFrame( char *buffer, int msgLength )
+sInt32_t rsiValidateFrame( char *buffer, uInt16_t msgLength )
 {
 
 	uInt8_t crcVal[CRC_SIZE];              // CRC value

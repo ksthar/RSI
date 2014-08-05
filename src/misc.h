@@ -11,6 +11,6 @@
 #include "commonTypes.h"
 
 void delayuS(uInt32_t uSec);
-int uptimeInSec( char *timeString );
+uInt16_t uptimeInSec( char *timeString );
 
 #endif /* MISC_H_ */

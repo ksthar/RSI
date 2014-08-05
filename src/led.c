@@ -16,18 +16,19 @@
 char *ledName[] = { RED, GREEN, BLUE };
 
 //tri-color LED control
-int led_setValue(char *led, int value)
+uInt16_t led_setValue(char *led, uInt16_t value)
 {
 	char buf[60];
-	int len = sprintf(buf, "/sys/class/leds/%s", led);
+	uInt16_t rtn;
+	uInt16_t len = sprintf(buf, "/sys/class/leds/%s", led);
 	strcat( &buf[len], "/brightness" );
-	int fd = open(buf, O_WRONLY);
+	uInt16_t fd = open(buf, O_WRONLY);
 	if (fd >= 0) {
 		if (value < 0)   value = 0;
 		if (value > 255) value = 255;
 
 		len = sprintf(buf, "%d", value);
-		write(fd, buf, len);
+		rtn = write(fd, buf, len);
 		close(fd);
 	}
 	return 0;

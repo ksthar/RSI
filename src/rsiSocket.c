@@ -31,10 +31,10 @@
  * @return The socked file descriptor is returned if the socket is successfully
  * opened.  Otherwise, a 1 is returned.
  */
-int openSocket( struct sockaddr_un *address )
+uInt16_t openSocket( struct sockaddr_un *address )
 {
 	// socket vars
-	int socket_fd, connection_fd;
+	uInt16_t socket_fd, connection_fd;
 
 	// ignore the SIGCHLD signal to prevent zombie processes
 	signal( SIGCHLD, SIG_IGN );
@@ -80,9 +80,9 @@ int openSocket( struct sockaddr_un *address )
  * 
  * @return Connection file descriptor
  */
-int createSocketConnection( int socket_fd, struct sockaddr_un *address )
+uInt16_t createSocketConnection( uInt16_t socket_fd, struct sockaddr_un *address )
 {
-	int connection_fd;
+	uInt16_t connection_fd;
 	socklen_t address_length;
 	address_length = 0;
 
@@ -115,9 +115,9 @@ int createSocketConnection( int socket_fd, struct sockaddr_un *address )
  * 
  * @return Number of bytes read
  */
-int readFromSocket( int connection_fd, char *buf )
+uInt16_t readFromSocket( uInt16_t connection_fd, char *buf )
 {
-	int nbytes = 0;
+	uInt16_t nbytes = 0;
 	// TO-DO: force buf to 256 here
 	nbytes = read(connection_fd, buf, 256);
 	buf[nbytes] = 0;
@@ -133,9 +133,9 @@ int readFromSocket( int connection_fd, char *buf )
  * 
  * @return Number of bytes written
  */
-int writeToSocket( int connection_fd, char *msg )
+uInt16_t writeToSocket( uInt16_t connection_fd, char *msg )
 {
-	int nbytes = 0;
+	uInt16_t nbytes = 0;
 	char buffer[256];
 	nbytes = snprintf(buffer, 256, "%s", msg);
 	printf( "\033[035m->  SENDING TO CLIENT:\033[037m   %s\n", msg);
@@ -150,7 +150,7 @@ int writeToSocket( int connection_fd, char *msg )
  * @param connection_fd Connection file descriptor
  */
 //
-void closeConnection( int connection_fd )
+void closeConnection( uInt16_t connection_fd )
 {
 	close( connection_fd );
 	printf( "Closing connection...\n" );
@@ -161,7 +161,7 @@ void closeConnection( int connection_fd )
  * 
  * @param socket_fd Socket file descriptor
  */
-void closeSocket( int socket_fd )
+void closeSocket( uInt16_t socket_fd )
 {
 	close( socket_fd );
 	unlink( SOCKET_ADDR );
