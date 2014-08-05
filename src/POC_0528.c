@@ -42,14 +42,14 @@
 #include "rsiSocket.h"
 
 /** 
- * @brief Reads 256 chars from socket
+ * @brief Reads SOCKET_BUFFER_SIZE chars from socket
  * 
  * @param conn The connection file descriptor
  * 
  * @return bytes read
  */
 int readSocketBuffer( int conn ){
-	char buffer[256];
+	char buffer[SOCKET_BUFFER_SIZE];
 	return readFromSocket( conn, buffer );
 }
 
@@ -62,8 +62,8 @@ int readSocketBuffer( int conn ){
  */
 int writeSocketBuffer( int conn ){
 	int nbytes;
-	char buffer[256];
-	nbytes = snprintf( buffer, 256, "Response from RSI process" );
+	char buffer[SOCKET_BUFFER_SIZE];
+	nbytes = snprintf( buffer, SOCKET_BUFFER_SIZE, "Response from RSI process" );
 	return writeToSocket( conn, buffer );
 }
 
@@ -79,12 +79,15 @@ int main(void) {	//this code emulates the RSI process...
 	int running = 1;
 	int sock_fd, conn_fd;
 
+	// create pointer to address so we can "pass by reference"
+	struct sockaddr_un client_addr;
+	struct sockaddr_un *ptr_client_addr = &client_addr;
 
 	char rsiRequestFrame[RSI_MAX_FRAME_SIZE];
 	char rsiResponseFrame[RSI_MAX_FRAME_SIZE];
 
 	// setup socket for communicating with on-board BLE process
-	sock_fd = openSocket();
+	sock_fd = openSocket( ptr_client_addr );
 
 	while (running) {	//emulate RSI process
 
@@ -102,7 +105,7 @@ int main(void) {	//this code emulates the RSI process...
 			rsiWrite(rsi_fd, rsiResponseFrame, reqLength);
 
 			// HN: make blocking call to socket connection
-			conn_fd = createSocketConnection();
+			conn_fd = createSocketConnection( sock_fd, ptr_client_addr );
 			// The following lines will read a message from the socket and then write
 			// a response.  At this point, there is no intelligence in the read
 			// routine.  In the future, the read should contain decision branching

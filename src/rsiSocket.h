@@ -15,6 +15,7 @@
 #define	READ	0
 #define	WRITE 1
 #define SOCKET_ADDR 	"./demo_socket"
+#define SOCKET_BUFFER_SIZE	256
 
 int openSocket( struct sockaddr_un *address );
 int createSocketConnection( int socket_fd, struct sockaddr_un *address );
