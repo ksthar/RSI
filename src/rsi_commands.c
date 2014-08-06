@@ -6,7 +6,7 @@
  */
 
 #include "commonTypes.h"
-#include "rsi.h"
+#include "mod_rsi.h"
 #include "rsi_commands.h"
 #include "crc.h"
 

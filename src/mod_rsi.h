@@ -38,12 +38,12 @@ typedef enum rsdStatus {
 	RSD_STATUS_CARDDATA,
 } rsdStatus_t;
 
-uInt16_t rsiOpen(void);
-uInt16_t rsiClose(uInt16_t fd);
-uInt16_t rsiRead( uInt16_t fd, char *buffer );
-uInt16_t rsiWrite( uInt16_t fd, char *buffer, uInt16_t numBytes );
-sInt32_t rsiValidateFrame( char *buffer, uInt16_t msgLength );
-sInt32_t rsiHandler(uInt8_t *rsiRequest, uInt8_t *rsiResponseFrame,
+uInt16_t rsi_open(void);
+uInt16_t rsi_close(uInt16_t fd);
+uInt16_t rsi_read( uInt16_t fd, uInt8_t *buffer );
+uInt16_t rsi_write( uInt16_t fd, uInt8_t *buffer, uInt16_t numBytes );
+sInt32_t rsi_validateFrame( uInt8_t *buffer, uInt16_t msgLength );
+sInt32_t rsi_handler(uInt8_t *rsiRequest, uInt8_t *rsiResponseFrame,
         sInt32_t * frameLength);
 
 

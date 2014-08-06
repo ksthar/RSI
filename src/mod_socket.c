@@ -18,7 +18,7 @@
 #include <signal.h>
 #include <fcntl.h>
 
-#include "rsiSocket.h"
+#include "mod_socket.h"
 
 #define		DEBUG
 
@@ -31,7 +31,7 @@
  * @return The socked file descriptor is returned if the socket is successfully
  * opened.  Otherwise, a 1 is returned.
  */
-uInt16_t openSocket( struct sockaddr_un *address )
+uInt16_t sock_open( struct sockaddr_un *address )
 {
 	// socket vars
 	uInt16_t socket_fd, connection_fd;
@@ -80,7 +80,7 @@ uInt16_t openSocket( struct sockaddr_un *address )
  * 
  * @return Connection file descriptor
  */
-uInt16_t createSocketConnection( uInt16_t socket_fd, struct sockaddr_un *address )
+uInt16_t sock_createConnection( uInt16_t socket_fd, struct sockaddr_un *address )
 {
 	uInt16_t connection_fd;
 	socklen_t address_length;
@@ -115,7 +115,7 @@ uInt16_t createSocketConnection( uInt16_t socket_fd, struct sockaddr_un *address
  * 
  * @return Number of bytes read
  */
-uInt16_t readFromSocket( uInt16_t connection_fd, char *buf )
+uInt16_t sock_read( uInt16_t connection_fd, char *buf )
 {
 	uInt16_t nbytes = 0;
 	// TO-DO: force buf to 256 here
@@ -133,7 +133,7 @@ uInt16_t readFromSocket( uInt16_t connection_fd, char *buf )
  * 
  * @return Number of bytes written
  */
-uInt16_t writeToSocket( uInt16_t connection_fd, char *msg )
+uInt16_t sock_write( uInt16_t connection_fd, char *msg )
 {
 	uInt16_t nbytes = 0;
 	char buffer[256];
@@ -150,7 +150,7 @@ uInt16_t writeToSocket( uInt16_t connection_fd, char *msg )
  * @param connection_fd Connection file descriptor
  */
 //
-void closeConnection( uInt16_t connection_fd )
+void sock_closeConnection( uInt16_t connection_fd )
 {
 	close( connection_fd );
 	printf( "Closing connection...\n" );
@@ -161,7 +161,7 @@ void closeConnection( uInt16_t connection_fd )
  * 
  * @param socket_fd Socket file descriptor
  */
-void closeSocket( uInt16_t socket_fd )
+void sock_close( uInt16_t socket_fd )
 {
 	close( socket_fd );
 	unlink( SOCKET_ADDR );

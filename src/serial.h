@@ -18,8 +18,8 @@ uInt16_t rs485_rcvDisable(void);
 uInt16_t rs485_xmitEnable(void);
 uInt16_t rs485_xmitDisable(void);
 
-uInt16_t rs485_read( uInt16_t fd, char *buffer, uInt16_t requested );
-uInt16_t rs485_write( uInt16_t fd, char *buffer, uInt16_t requested );
+uInt16_t rs485_read( uInt16_t fd, uInt8_t *buffer, uInt16_t requested );
+uInt16_t rs485_write( uInt16_t fd, uInt8_t *buffer, uInt16_t requested );
 
 void rs485TimedRead( uInt16_t fd, uInt16_t enabled );
 void rs485UartVminVtime( uInt16_t fd, uInt16_t vmin, uInt16_t vtime );

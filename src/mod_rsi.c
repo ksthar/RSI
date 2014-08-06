@@ -1,8 +1,9 @@
-/*
- * rsi.c
- *
- *  Created on: May 22, 2014
- *      Author: kbroerman
+/** 
+ * @file mod_rsi.c
+ * @brief Interface to RSI commands
+ * @author Harlan Shoop
+ * @version 0.1
+ * @date 2014-08-06
  */
 
 #include <stdlib.h>
@@ -14,7 +15,7 @@
 #include <errno.h>
 
 #include "commonTypes.h"
-#include "rsi.h"
+#include "mod_rsi.h"
 #include "rsi_commands.h"
 #include "serial.h"
 #include "crc.h"
@@ -24,18 +25,37 @@
 
 #define RSI_DEBUG
 
-uInt16_t rsiOpen(void)
+/** 
+ * @brief Open an RSI session
+ * 
+ * @return File descriptor for session
+ */
+uInt16_t rsi_open(void)
 {
 	crcInit();
 	return rs485_open();
 }
 
-uInt16_t rsiClose(uInt16_t fd)
+/** 
+ * @brief Close RSI session
+ * 
+ * @param fd 
+ * 
+ * @return 
+ */
+uInt16_t rsi_close(uInt16_t fd)
 {
 	rs485_close(fd);
 }
 
-void dbg_print_msg( uInt16_t write, char *buf, uInt16_t len )
+/** 
+ * @brief Debug function for printing out r/w messages
+ * 
+ * @param write If true, message is a write; else message is read
+ * @param buf The buffer to r/w
+ * @param len Number of characters in buffer
+ */
+void dbg_print_msg( uInt16_t write, uInt8_t *buf, uInt16_t len )
 {
 #ifdef RSI_DEBUG
 	uInt16_t i;
@@ -53,13 +73,16 @@ void dbg_print_msg( uInt16_t write, char *buf, uInt16_t len )
 #endif
 }
 
-//inputs:
-//		fd:     	uart file descriptor
-//		buffer: 	transmit buffer
-//		numBytes:	# bytes to send
-//
-//returns bytes received. returns only if valid frame received.
-uInt16_t rsiWrite( uInt16_t fd, char *buffer, uInt16_t numBytes )
+/** 
+ * @brief Writes RSI message to RS-485 bus
+ * 
+ * @param fd File descriptor for RSI session
+ * @param buffer Buffer containing message to write
+ * @param numBytes Number of bytes to write
+ * 
+ * @return 
+ */
+uInt16_t rsi_write( uInt16_t fd, uInt8_t *buffer, uInt16_t numBytes )
 {
 	if (fd == -1) return -1;
 	rs485_xmitEnable();		//half duplex mode, enable Tx
@@ -73,12 +96,15 @@ uInt16_t rsiWrite( uInt16_t fd, char *buffer, uInt16_t numBytes )
 	rs485_xmitDisable();
 }
 
-//inputs:
-//		fd:     uart file descriptor
-//		buffer: receive buffer
-//
-//returns bytes received. returns only if valid frame received.
-uInt16_t rsiRead( uInt16_t fd, char *buffer )
+/** 
+ * @brief Reads RSI message from RS-485 bus, checks CRC
+ * 
+ * @param fd File descriptor for RSI session (UART)
+ * @param buffer Buffer to hold read message
+ * 
+ * @return 
+ */
+uInt16_t rsi_read( uInt16_t fd, uInt8_t *buffer )
 {
 	if (fd == -1) return -1;
 	uInt16_t count;
@@ -118,24 +144,11 @@ uInt16_t rsiRead( uInt16_t fd, char *buffer )
 		count = rs485_read(fd, &buffer[1], RSI_MAX_FRAME_SIZE-1); //should return after 0.1 sec
 		printf("total bytes counted = %d\n", count+1);
 
-		/*----------- Debugging ------------------*/
-		// The idea here is to create a new buffer with the masked contents of the first.
-		uInt16_t i;
-		char newBuffer[RSI_MAX_FRAME_SIZE];
-		char *newBuf = &newBuffer[0];
-		puts( "loading new buffer..." );
-		for (i=0; i < count; i++) {
-			// HN: is this a type issue?
-			newBuffer[i] = (buffer[i] & 0x000000ff);
-		}
-		puts( "...done." );
-		//-------------------------------------------*/
-
 		//RS485 Bytes received
 		dbg_print_msg( 0, buffer, count+1 );
 
 		//validate message CRC/checksum
-		validRsiFrame = rsiValidateFrame( &buffer[1], count);
+		validRsiFrame = rsi_validateFrame( &buffer[1], count);
 
 	} //waiting for validRsiFrame
 
@@ -144,10 +157,15 @@ uInt16_t rsiRead( uInt16_t fd, char *buffer )
 	return (count+1);
 }
 
-//inputs:
-//	buffer:  received RSI frame, starting with address field
-//	msgLength: RSI message length, not including SOF.  Includes CRC/checksum byte(s)
-sInt32_t rsiValidateFrame( char *buffer, uInt16_t msgLength )
+/** 
+ * @brief Checks CRC of frame
+ * 
+ * @param buffer Buffer containing message to check
+ * @param msgLength Length of message in bytes
+ * 
+ * @return success/failure
+ */
+sInt32_t rsi_validateFrame( uInt8_t *buffer, uInt16_t msgLength )
 {
 
 	uInt8_t crcVal[CRC_SIZE];              // CRC value
@@ -179,8 +197,16 @@ sInt32_t rsiValidateFrame( char *buffer, uInt16_t msgLength )
 	return retVal;
 }
 
-//on success, sets the rsiResponseFrame framelength:
-sInt32_t rsiHandler(uInt8_t *rsiRequestFrame, uInt8_t *rsiResponseFrame,
+/** 
+ * @brief Handler for RSI messages
+ * 
+ * @param rsiRequestFrame RSI command (received message)
+ * @param rsiResponseFrame RSI response to send back
+ * @param frameLength Length of response in bytes; set if command recognized
+ * 
+ * @return 
+ */
+sInt32_t rsi_handler(uInt8_t *rsiRequestFrame, uInt8_t *rsiResponseFrame,
         sInt32_t * frameLength)
 {
     sInt32_t retVal = STATUS_FAILURE;        // Variable for Return value

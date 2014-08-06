@@ -58,7 +58,7 @@ uInt16_t rs485_xmitDisable(void)
 //		buffer: receive buffer
 //
 //returns bytes received
-uInt16_t rs485_read( uInt16_t fd, char *buffer, uInt16_t requested )
+uInt16_t rs485_read( uInt16_t fd, uInt8_t *buffer, uInt16_t requested )
 {
 	if (fd == -1) return -1;
 	uInt16_t actual, i;
@@ -85,7 +85,7 @@ uInt16_t rs485_read( uInt16_t fd, char *buffer, uInt16_t requested )
 //		buffer: transmit buffer
 //
 //returns bytes sent
-uInt16_t rs485_write( uInt16_t fd, char *buffer, uInt16_t requested )
+uInt16_t rs485_write( uInt16_t fd, uInt8_t *buffer, uInt16_t requested )
 {
 	if (fd == -1) return -1;
 	uInt16_t actual;
@@ -173,8 +173,8 @@ uInt16_t rs485_open(void)
 	//memset(&options, 0, sizeof(options));
 	tcgetattr(uart2_fd, &options);
 	cfmakeraw(&options);
-	options.c_cc[VMIN]  = 1;	//if blocking read: wait for at least 1 char (SOF)
-	options.c_cc[VTIME] = 0;	//read: 100 mS interchar timeout
+	options.c_cc[VMIN]  = 1;	//if blocking read: wait for at least 1 uInt8_t (SOF)
+	options.c_cc[VTIME] = 0;	//read: 100 mS interuInt8_t timeout
 	cfsetispeed(&options, B9600);
 	cfsetospeed(&options, B9600);
 
@@ -187,8 +187,8 @@ uInt16_t rs485_open(void)
 	options.c_oflag = 0;
 	options.c_lflag &= ~(ICANON);	//raw mode
 
-	options.c_cc[VMIN]  = 0;	//if blocking read: wait for at least 1 char (SOF)
-	options.c_cc[VTIME] = 0;	//read: 100 mS interchar timeout
+	options.c_cc[VMIN]  = 0;	//if blocking read: wait for at least 1 uInt8_t (SOF)
+	options.c_cc[VTIME] = 0;	//read: 100 mS interuInt8_t timeout
 #endif
 
 
