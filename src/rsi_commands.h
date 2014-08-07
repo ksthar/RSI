@@ -1,10 +1,10 @@
-/*
- * rsi_commands.h
- *
- *  Created on: May 22, 2014
- *      Author: kbroerman
+/** 
+ * @file rsi_commands.h
+ * @brief Header for rsi_commands.c
+ * @author Keith Broerman
+ * @version 0.1
+ * @date 2014-05-22
  */
-
 #ifndef RSI_COMMANDS_H_
 #define RSI_COMMANDS_H_
 

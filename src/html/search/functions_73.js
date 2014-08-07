@@ -1,0 +1,9 @@
+var searchData=
+[
+  ['sock_5fclose',['sock_close',['../mod__socket_8c.html#a239dd07cd226c8361c40948e82135df8',1,'sock_close(uInt16_t socket_fd):&#160;mod_socket.c'],['../mod__socket_8h.html#a239dd07cd226c8361c40948e82135df8',1,'sock_close(uInt16_t socket_fd):&#160;mod_socket.c']]],
+  ['sock_5fcloseconnection',['sock_closeConnection',['../mod__socket_8c.html#a035bcb74e3dff1a2a48008344c48bbaf',1,'sock_closeConnection(uInt16_t connection_fd):&#160;mod_socket.c'],['../mod__socket_8h.html#a035bcb74e3dff1a2a48008344c48bbaf',1,'sock_closeConnection(uInt16_t connection_fd):&#160;mod_socket.c']]],
+  ['sock_5fcreateconnection',['sock_createConnection',['../mod__socket_8c.html#af1958012002e31d9dd670f474eb7acbf',1,'sock_createConnection(uInt16_t socket_fd, struct sockaddr_un *address):&#160;mod_socket.c'],['../mod__socket_8h.html#af1958012002e31d9dd670f474eb7acbf',1,'sock_createConnection(uInt16_t socket_fd, struct sockaddr_un *address):&#160;mod_socket.c']]],
+  ['sock_5fopen',['sock_open',['../mod__socket_8c.html#a8583709444be19686a977aa1a9e757fc',1,'sock_open(struct sockaddr_un *address):&#160;mod_socket.c'],['../mod__socket_8h.html#a8583709444be19686a977aa1a9e757fc',1,'sock_open(struct sockaddr_un *address):&#160;mod_socket.c']]],
+  ['sock_5fread',['sock_read',['../mod__socket_8c.html#a2885060ef2f158e4783a9a22bec4a4ff',1,'sock_read(uInt16_t connection_fd, char *buf):&#160;mod_socket.c'],['../mod__socket_8h.html#a2885060ef2f158e4783a9a22bec4a4ff',1,'sock_read(uInt16_t connection_fd, char *buf):&#160;mod_socket.c']]],
+  ['sock_5fwrite',['sock_write',['../mod__socket_8c.html#adfbd41c1989dbc29b3ec727dfb378918',1,'sock_write(uInt16_t connection_fd, char *msg):&#160;mod_socket.c'],['../mod__socket_8h.html#adfbd41c1989dbc29b3ec727dfb378918',1,'sock_write(uInt16_t connection_fd, char *msg):&#160;mod_socket.c']]]
+];

@@ -1,10 +1,19 @@
 var searchData=
 [
   ['readsocketbuffer',['readSocketBuffer',['../rsiTest_8c.html#abbe3f5ed2a4c2e01da03bb1f1ee1b614',1,'rsiTest.c']]],
-  ['rsi_5fclose',['rsi_close',['../mod__rsi_8c.html#a2e4f09573115d92f0336a32594df9ef5',1,'mod_rsi.c']]],
-  ['rsi_5fhandler',['rsi_handler',['../mod__rsi_8c.html#a0baeb3ba4a120cae3e4c9eb6d0fd990e',1,'mod_rsi.c']]],
-  ['rsi_5fopen',['rsi_open',['../mod__rsi_8c.html#affe6f347ee35fd56052f17869156743d',1,'mod_rsi.c']]],
-  ['rsi_5fread',['rsi_read',['../mod__rsi_8c.html#aafae55bf54635b310a281bfdecbaea99',1,'mod_rsi.c']]],
-  ['rsi_5fvalidateframe',['rsi_validateFrame',['../mod__rsi_8c.html#a86a65eb7bb1899ba1dc7df8311a642a5',1,'mod_rsi.c']]],
-  ['rsi_5fwrite',['rsi_write',['../mod__rsi_8c.html#abc7fd75346ff3edfec1a47cc553c0f31',1,'mod_rsi.c']]]
+  ['rs485_5fclose',['rs485_close',['../serial_8c.html#a95c1c475c8b874ee83e72be144cc5a6c',1,'rs485_close(uInt16_t fd):&#160;serial.c'],['../serial_8h.html#a95c1c475c8b874ee83e72be144cc5a6c',1,'rs485_close(uInt16_t fd):&#160;serial.c']]],
+  ['rs485_5fopen',['rs485_open',['../serial_8c.html#a2453bd88ee308c9b045a8a4a04fb7eae',1,'rs485_open(void):&#160;serial.c'],['../serial_8h.html#a2453bd88ee308c9b045a8a4a04fb7eae',1,'rs485_open(void):&#160;serial.c']]],
+  ['rs485_5frcvdisable',['rs485_rcvDisable',['../serial_8c.html#a74093091ed54d4494ac8529285a111bb',1,'rs485_rcvDisable(void):&#160;serial.c'],['../serial_8h.html#a74093091ed54d4494ac8529285a111bb',1,'rs485_rcvDisable(void):&#160;serial.c']]],
+  ['rs485_5frcvenable',['rs485_rcvEnable',['../serial_8c.html#a500569cb4e607e9eac4a67d4da78f9db',1,'rs485_rcvEnable(void):&#160;serial.c'],['../serial_8h.html#a500569cb4e607e9eac4a67d4da78f9db',1,'rs485_rcvEnable(void):&#160;serial.c']]],
+  ['rs485_5fread',['rs485_read',['../serial_8c.html#a3f44692f3c8df779fb2387bbcc56817c',1,'rs485_read(uInt16_t fd, uInt8_t *buffer, uInt16_t requested):&#160;serial.c'],['../serial_8h.html#a3f44692f3c8df779fb2387bbcc56817c',1,'rs485_read(uInt16_t fd, uInt8_t *buffer, uInt16_t requested):&#160;serial.c']]],
+  ['rs485_5fwrite',['rs485_write',['../serial_8c.html#a0b9850b99c484a19fdd1fe402106e435',1,'rs485_write(uInt16_t fd, uInt8_t *buffer, uInt16_t requested):&#160;serial.c'],['../serial_8h.html#a0b9850b99c484a19fdd1fe402106e435',1,'rs485_write(uInt16_t fd, uInt8_t *buffer, uInt16_t requested):&#160;serial.c']]],
+  ['rs485_5fxmitdisable',['rs485_xmitDisable',['../serial_8c.html#a1dbc82a1521a890e7ef64b61baf2b490',1,'rs485_xmitDisable(void):&#160;serial.c'],['../serial_8h.html#a1dbc82a1521a890e7ef64b61baf2b490',1,'rs485_xmitDisable(void):&#160;serial.c']]],
+  ['rs485_5fxmitenable',['rs485_xmitEnable',['../serial_8c.html#aa1a00f2c66b73b93265b376dd38e5ddc',1,'rs485_xmitEnable(void):&#160;serial.c'],['../serial_8h.html#aa1a00f2c66b73b93265b376dd38e5ddc',1,'rs485_xmitEnable(void):&#160;serial.c']]],
+  ['rs485uartvminvtime',['rs485UartVminVtime',['../serial_8c.html#a8caef18e03b986ed12022bdaf8255ae4',1,'rs485UartVminVtime(uInt16_t fd, uInt16_t vmin, uInt16_t vtime):&#160;serial.c'],['../serial_8h.html#a8caef18e03b986ed12022bdaf8255ae4',1,'rs485UartVminVtime(uInt16_t fd, uInt16_t vmin, uInt16_t vtime):&#160;serial.c']]],
+  ['rsi_5fclose',['rsi_close',['../mod__rsi_8c.html#a2e4f09573115d92f0336a32594df9ef5',1,'rsi_close(uInt16_t fd):&#160;mod_rsi.c'],['../mod__rsi_8h.html#a2e4f09573115d92f0336a32594df9ef5',1,'rsi_close(uInt16_t fd):&#160;mod_rsi.c']]],
+  ['rsi_5fhandler',['rsi_handler',['../mod__rsi_8c.html#a0baeb3ba4a120cae3e4c9eb6d0fd990e',1,'rsi_handler(uInt8_t *rsiRequestFrame, uInt8_t *rsiResponseFrame, sInt32_t *frameLength):&#160;mod_rsi.c'],['../mod__rsi_8h.html#afaef7f43a0abc49cc1e1d9a6a149ccaa',1,'rsi_handler(uInt8_t *rsiRequest, uInt8_t *rsiResponseFrame, sInt32_t *frameLength):&#160;mod_rsi.c']]],
+  ['rsi_5fopen',['rsi_open',['../mod__rsi_8c.html#affe6f347ee35fd56052f17869156743d',1,'rsi_open(void):&#160;mod_rsi.c'],['../mod__rsi_8h.html#affe6f347ee35fd56052f17869156743d',1,'rsi_open(void):&#160;mod_rsi.c']]],
+  ['rsi_5fread',['rsi_read',['../mod__rsi_8c.html#aafae55bf54635b310a281bfdecbaea99',1,'rsi_read(uInt16_t fd, uInt8_t *buffer):&#160;mod_rsi.c'],['../mod__rsi_8h.html#aafae55bf54635b310a281bfdecbaea99',1,'rsi_read(uInt16_t fd, uInt8_t *buffer):&#160;mod_rsi.c']]],
+  ['rsi_5fvalidateframe',['rsi_validateFrame',['../mod__rsi_8c.html#a86a65eb7bb1899ba1dc7df8311a642a5',1,'rsi_validateFrame(uInt8_t *buffer, uInt16_t msgLength):&#160;mod_rsi.c'],['../mod__rsi_8h.html#a86a65eb7bb1899ba1dc7df8311a642a5',1,'rsi_validateFrame(uInt8_t *buffer, uInt16_t msgLength):&#160;mod_rsi.c']]],
+  ['rsi_5fwrite',['rsi_write',['../mod__rsi_8c.html#abc7fd75346ff3edfec1a47cc553c0f31',1,'rsi_write(uInt16_t fd, uInt8_t *buffer, uInt16_t numBytes):&#160;mod_rsi.c'],['../mod__rsi_8h.html#abc7fd75346ff3edfec1a47cc553c0f31',1,'rsi_write(uInt16_t fd, uInt8_t *buffer, uInt16_t numBytes):&#160;mod_rsi.c']]]
 ];

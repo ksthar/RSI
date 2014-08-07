@@ -1,3 +1,16 @@
+/*****************************************************************************//** 
+ * @file crc.c
+ * @brief  CRC and Checksum calculation for RSI protocol.
+ *		   Contains function implementation for CRC and Checksum
+ *		   calculation for RSI protocol. These functions performs
+ *		   Initialization of CRC table, Validation of CRC for given
+ *		   RSI Frame, Checksum calculation for given data and CRC
+ *		   calculation for given data is obtained from
+ *		   AD-series RSI Serial RS-485 Protocol Specifications ver-4.0
+ * @author Allegion Staff
+ * @version 0.1
+ * @date ?
+ *******************************************************************************/
 /*------------------------------------------------------------------------------
  * Copyright(c)2014 Allegion PLC as an unpublished work.
  *
@@ -6,15 +19,6 @@
  * express written consent of Allegion PLC is prohibited, except as allowed
  * under the copyright laws.
  *----------------------------------------------------------------------------*/
-/*------------------------------------------------------------------------------
- * File Name	  : crc.c
- * Purpose of File: Contains function implementation for CRC and Checksum
- *                  calculation for RSI protocol. These functions performs
- *                  Initialization of CRC table, Validation of CRC for given
- *                  RSI Frame, Checksum calculation for given data and CRC
- *                  calculation for given data is obtained from
- *                  AD-series RSI Serial RS-485 Protocol Specifications ver-4.0
- *----------------------------------------------------------------------------*/
 
 /*-------------- HEADER INCLUDE FILES ----------------------------------------*/
 #include "crc.h"
@@ -22,14 +26,11 @@
 
 /*-------------- FUNCTIONS DEFINITIONS ---------------------------------------*/
 
-/******************************************************************************
- * Description:  crcInit()              - Initializes the CRC module with CRC
- *                                        table.
- *
- * Arguments                            - none
- * Return                               - none
- * Notes/Preconditions                  - none
- ******************************************************************************/
+/* ****************************************************************** */
+/** 
+ * @brief Initializes the CRC module with CRC
+ */
+/* ****************************************************************** */
 void crcInit(void)
 {
     // Call buildXmodem only once. No need to do this at all if the array is
@@ -40,17 +41,18 @@ void crcInit(void)
 #endif
 }   // End of crcInit()
 
-/******************************************************************************
- * Description:  calculateChecksum()    - Calculates checksum of received RSI
- *                                        frame
- *
- * Arguments: uInt8_t * rsiFrame   		- Pointer to RSI frame not including SOF
- *            sInt32_t  frameLength     - Length of frame not including SOF
- * Return:    uInt8_t checkSum                      : on Failure
- *                                      - calculated Checksum value - on Success
- * Notes/Preconditions                  - This function should be called only
- *                                        after receiving RSI frame
- ******************************************************************************/
+/* ****************************************************************** */
+/** 
+ * @brief Calculates checksum of received RSI
+ * 
+ * @param rsiFrame		Pointer to RSI frame not including SOF
+ * @param frameLength	Length of frame not including SOF
+ * 
+ * @return 				Calculated checksum value (on success)
+ * @note				This function should only be called after receiving RSI
+ * 						frame
+ */
+/* ****************************************************************** */
 uInt8_t calculateChecksum(uInt8_t * rsiFrame, sInt32_t frameLength)
 {
     sInt32_t i;
@@ -68,18 +70,19 @@ uInt8_t calculateChecksum(uInt8_t * rsiFrame, sInt32_t frameLength)
     return (checkSum);
 }   // End of calculateChecksum()
 
-/******************************************************************************
- * Description:  calculateCrc()    - Calculates CRC of received RSI Frame.
- *
- * Arguments: uInt8_t * rsiFrame   - Pointer to RSI frame not including SOF
- *            sInt32_t frameLength - Length of RSI frame not including SOF
- *            uInt8_t * crcVal     - Pointer to CRC value result.
- * Return:    sInt32_t retVal      - STATUS_SUCCESS  : CRC calculated.
- *                                   STATUS_FAILURE  : On Failure
- *                                 -
- * Notes/Preconditions             - This function should be called only
- *                                   after receiving RSI frame
- ******************************************************************************/
+/* ****************************************************************** */
+/** 
+ * @brief Calculates CRC of received RSI frame.
+ * 
+ * @param rsiFrame		Pointer to RSI frame not including SOF
+ * @param frameLength	Length of RSI frame not including SOF
+ * @param crcVal		Pointer to CRC value result
+ * 
+ * @return 				STATUS_SUCCESS/STATUS_FAILURE
+ * @note				This function should only be called after 
+ * 						receiving RSI frame.			
+ */
+/* ****************************************************************** */
 sInt32_t calculateCrc(uInt8_t * rsiFrame, sInt32_t frameLength, uInt8_t *crcVal)
 {
     uInt16_t tempCrc = ZERO;   // Temporary variable for CRC
@@ -102,15 +105,13 @@ sInt32_t calculateCrc(uInt8_t * rsiFrame, sInt32_t frameLength, uInt8_t *crcVal)
     return (retVal);
 }   // End of calculateCrc()
 
-/******************************************************************************
- * Description:  printTable()     - Print the global table of CRC if CRC_DEBUG
- *                                  is defined for debugging
- *
- * Arguments                      - none
- * Return                         - none
- * Notes/Preconditions            - Global CRC table is initialized.
- *                                - CRC_DEBUG macro defined
- ******************************************************************************/
+/* ****************************************************************** */
+/** 
+ * @brief Print the global table of CRC if CRC_DEBUG
+ * @note		- Global CRC table is initialized.
+ *              - CRC_DEBUG macro defined
+ */
+/* ****************************************************************** */
 void printTable(void)
 {
 #ifdef CRC_DEBUG
@@ -129,13 +130,11 @@ void printTable(void)
 #endif
 }   // End of printTable()
 
-/******************************************************************************
- * Description:  buildXmodem()          - Initialize the CRC table at run-time
- *
- * Arguments                            - none
- * Return                               - none
- * Notes/Preconditions                  - none
- ******************************************************************************/
+/* ****************************************************************** */
+/** 
+ * @brief Initializes the CRC table at run-time
+ */
+/* ****************************************************************** */
 void buildXmodem(void)
 {
     sInt32_t i = ZERO;
@@ -150,14 +149,16 @@ void buildXmodem(void)
     }
 }   // End of buildXmodem()
 
-/******************************************************************************
- * Description:  xmodemCrc()      - Update the CRC value with a new byte
- *
- * Arguments: uInt8_t byteVal     - Value accounted as byte
- *            uInt16_t tempCrc    - Temporary CRC value.
- * Return: uInt16_t crcResult       - Calculated value of tempCrc
- * Notes/Preconditions            - none
- ******************************************************************************/
+/* ****************************************************************** */
+/** 
+ * @brief Update the CRC value with a new byte
+ * 
+ * @param byteVal	Value accounted as byte
+ * @param tempCrc	Temporary CRC value
+ * 
+ * @return 			Calculated value of tempCrc
+ */
+/* ****************************************************************** */
 uInt16_t xmodemCrc(uInt8_t byteVal, uInt16_t tempCrc)
 {
     uInt16_t crcResult = ZERO;
@@ -167,18 +168,17 @@ uInt16_t xmodemCrc(uInt8_t byteVal, uInt16_t tempCrc)
     return (crcResult);
 }   // End of xmodemCrc()
 
-/******************************************************************************
- * Description:  calculateCrcBuf()- Calculate the CRC of a received
- *                                  character buffer.
- *
- * Arguments: uInt8_t * crcBuf    - Pointer to CRC buffer.
- *            sInt32_t bufLength  - Length of frame received.
- *            uInt16_t tempCrc    - Temporary CRC value.
- * Return:    uInt16_t crcResult    - Calculated CRC value of buffer
- *                                  received.
- * Notes/Preconditions            - This function should be called only
- *                                  when character buffer is received.
- ******************************************************************************/
+/* ****************************************************************** */
+/** 
+ * @brief 				Calculate the CRC of a received character buffer
+ * 
+ * @param crcBuf		Pointer to CRC buffer
+ * @param bufLength		Length of frame received
+ * @param tempCrc		Temporary CRC value
+ * 
+ * @return 				Calculated CRC value of buffer 
+ */
+/* ****************************************************************** */
 uInt16_t calculateCrcBuf(uInt8_t * crcBuf, sInt32_t bufLength, uInt16_t tempCrc)
 {
 	uInt16_t crcResult = ZERO;

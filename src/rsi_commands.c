@@ -1,10 +1,10 @@
-/*
- * rsi_commands.c
- *
- *  Created on: May 22, 2014
- *      Author: kbroerman
+/** 
+ * @file rsi_commands.c
+ * @brief Handler for each RSI command
+ * @author Keith Broerman
+ * @version 0.1
+ * @date 2014-05-22
  */
-
 #include "commonTypes.h"
 #include "mod_rsi.h"
 #include "rsi_commands.h"
@@ -14,6 +14,17 @@
 static sInt32_t prepareStatusIdle(uInt8_t *rsiResponseFrame);
 static sInt32_t prepareApmStatus(uInt8_t *rsiResponseFrame);
 
+// =============================== COMMANDS ===============================================
+//
+/* ****************************************************************** */
+/** 
+ * @brief Poll RSD command
+ * 
+ * @param rsiResponseFrame	Response to APC
+ * 
+ * @return  Frame length on success
+ */
+/* ****************************************************************** */
 sInt32_t processPollRsd(uInt8_t * rsiResponseFrame)
 {
     sInt32_t frameLength = STATUS_FAILURE;         		// response frame length
@@ -71,6 +82,15 @@ sInt32_t processPollRsd(uInt8_t * rsiResponseFrame)
     return (frameLength);
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief Poll APM command
+ * 
+ * @param rsiResponseFrame	Response to APC
+ * 
+ * @return Frame length on success
+ */
+/* ****************************************************************** */
 sInt32_t processPollApm(uInt8_t * rsiResponseFrame)
 {
 	sInt32_t frameLength = STATUS_FAILURE;         		// response frame length
@@ -89,6 +109,16 @@ sInt32_t processPollApm(uInt8_t * rsiResponseFrame)
     return (frameLength);
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief APM Timed Unlock command
+ * 
+ * @param rsiRequestFrame	Request data containing time
+ * @param rsiResponseFrame	Response to APC
+ * 
+ * @return Response frame length on success
+ */
+/* ****************************************************************** */
 sInt32_t processApmTimedUnlock(uInt8_t * rsiRequestFrame, uInt8_t * rsiResponseFrame)
 {
 	sInt32_t frameLength = STATUS_FAILURE;         		// response frame length
@@ -113,8 +143,18 @@ sInt32_t processApmTimedUnlock(uInt8_t * rsiRequestFrame, uInt8_t * rsiResponseF
     return (frameLength);
 }
 
+// =============================== RESPONSES ===============================================
 // build response frames:
 
+/* ****************************************************************** */
+/** 
+ * @brief Status Idle Response
+ * 
+ * @param rsiResponseFrame	Response
+ * 
+ * @return Frame length of response on success
+ */
+/* ****************************************************************** */
  static sInt32_t prepareStatusIdle(uInt8_t *rsiResponseFrame)
 {
     sInt32_t frameLength = STATUS_FAILURE;         // response frame length
@@ -141,6 +181,15 @@ sInt32_t processApmTimedUnlock(uInt8_t * rsiRequestFrame, uInt8_t * rsiResponseF
     return frameLength;
 } // end prepareStatusIdle()
 
+/* ****************************************************************** */
+/** 
+ * @brief APM Status response
+ * 
+ * @param rsiResponseFrame	Response to APC
+ * 
+ * @return	Response frame length on success
+ */
+/* ****************************************************************** */
 static sInt32_t prepareApmStatus(uInt8_t *rsiResponseFrame)
 {
     sInt32_t frameLength = STATUS_FAILURE;         // response frame length

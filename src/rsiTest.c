@@ -69,6 +69,14 @@ uInt16_t writeSocketBuffer( uInt16_t conn ){
 	return sock_write( conn, buffer );
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief 	Main; waits for RSI command, handles it, and optionally sets up a
+ * 			socket to communicate with the BLE process.
+ * 
+ * @return 	STATUS_SUCCESS on success
+ */
+/* ****************************************************************** */
 uInt16_t main(void) {	//this code emulates the RSI process...
 
 	puts("RSI-BLE POC for Digi i.MX28...");
@@ -130,6 +138,6 @@ uInt16_t main(void) {	//this code emulates the RSI process...
 
 	//----- close the UART, release the GPIOs, etc -----
 	rsi_close(rsi_fd);
-	return 0;
+	return STATUS_SUCCESS;
 }
 

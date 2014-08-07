@@ -1,10 +1,10 @@
-/*
- * led.c
- *
- *  Created on: May 23, 2014
- *      Author: kbroerman
+/** 
+ * @file led.c
+ * @brief Set tricolor LED color
+ * @author Keith Broerman
+ * @version 0.1
+ * @date 2014-05-23
  */
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -13,9 +13,18 @@
 
 #include "led.h"
 
-char *ledName[] = { RED, GREEN, BLUE };
+char *ledName[] = { RED, GREEN, BLUE };		/**< LED names	*/
 
-//tri-color LED control
+/* ****************************************************************** */
+/** 
+ * @brief 			Set value of LED
+ * 
+ * @param led		String specifying LED color
+ * @param value		0-255 value for LED brightness
+ * 
+ * @return 
+ */
+/* ****************************************************************** */
 uInt16_t led_setValue(char *led, uInt16_t value)
 {
 	char buf[60];

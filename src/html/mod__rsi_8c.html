@@ -67,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,30 +94,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;unistd.h&gt;</code><br/>
 <code>#include &lt;termios.h&gt;</code><br/>
 <code>#include &lt;errno.h&gt;</code><br/>
-<code>#include &quot;commonTypes.h&quot;</code><br/>
-<code>#include &quot;mod_rsi.h&quot;</code><br/>
-<code>#include &quot;rsi_commands.h&quot;</code><br/>
-<code>#include &quot;serial.h&quot;</code><br/>
-<code>#include &quot;crc.h&quot;</code><br/>
-<code>#include &quot;misc.h&quot;</code><br/>
-<code>#include &quot;led.h&quot;</code><br/>
-<code>#include &quot;gpio.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="commonTypes_8h_source.html">commonTypes.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="mod__rsi_8h_source.html">mod_rsi.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="rsi__commands_8h_source.html">rsi_commands.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="serial_8h_source.html">serial.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="crc_8h_source.html">crc.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="misc_8h_source.html">misc.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:affe6f347ee35fd56052f17869156743d"><td class="memItemLeft" align="right" valign="top">uInt16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#affe6f347ee35fd56052f17869156743d">rsi_open</a> (void)</td></tr>
+<tr class="memitem:affe6f347ee35fd56052f17869156743d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#affe6f347ee35fd56052f17869156743d">rsi_open</a> (void)</td></tr>
 <tr class="memdesc:affe6f347ee35fd56052f17869156743d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open an RSI session.  <a href="#affe6f347ee35fd56052f17869156743d"></a><br/></td></tr>
-<tr class="memitem:a2e4f09573115d92f0336a32594df9ef5"><td class="memItemLeft" align="right" valign="top">uInt16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#a2e4f09573115d92f0336a32594df9ef5">rsi_close</a> (uInt16_t fd)</td></tr>
+<tr class="memitem:a2e4f09573115d92f0336a32594df9ef5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#a2e4f09573115d92f0336a32594df9ef5">rsi_close</a> (<a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> fd)</td></tr>
 <tr class="memdesc:a2e4f09573115d92f0336a32594df9ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close RSI session.  <a href="#a2e4f09573115d92f0336a32594df9ef5"></a><br/></td></tr>
-<tr class="memitem:ae1a813a82605c5fe9f9f2971ef180678"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#ae1a813a82605c5fe9f9f2971ef180678">dbg_print_msg</a> (uInt16_t write, uInt8_t *buf, uInt16_t len)</td></tr>
+<tr class="memitem:ae1a813a82605c5fe9f9f2971ef180678"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#ae1a813a82605c5fe9f9f2971ef180678">dbg_print_msg</a> (<a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> write, <a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *buf, <a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> len)</td></tr>
 <tr class="memdesc:ae1a813a82605c5fe9f9f2971ef180678"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug function for printing out r/w messages.  <a href="#ae1a813a82605c5fe9f9f2971ef180678"></a><br/></td></tr>
-<tr class="memitem:abc7fd75346ff3edfec1a47cc553c0f31"><td class="memItemLeft" align="right" valign="top">uInt16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#abc7fd75346ff3edfec1a47cc553c0f31">rsi_write</a> (uInt16_t fd, uInt8_t *buffer, uInt16_t numBytes)</td></tr>
+<tr class="memitem:abc7fd75346ff3edfec1a47cc553c0f31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#abc7fd75346ff3edfec1a47cc553c0f31">rsi_write</a> (<a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> fd, <a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *buffer, <a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> numBytes)</td></tr>
 <tr class="memdesc:abc7fd75346ff3edfec1a47cc553c0f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes RSI message to RS-485 bus.  <a href="#abc7fd75346ff3edfec1a47cc553c0f31"></a><br/></td></tr>
-<tr class="memitem:aafae55bf54635b310a281bfdecbaea99"><td class="memItemLeft" align="right" valign="top">uInt16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#aafae55bf54635b310a281bfdecbaea99">rsi_read</a> (uInt16_t fd, uInt8_t *buffer)</td></tr>
+<tr class="memitem:aafae55bf54635b310a281bfdecbaea99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#aafae55bf54635b310a281bfdecbaea99">rsi_read</a> (<a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> fd, <a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *buffer)</td></tr>
 <tr class="memdesc:aafae55bf54635b310a281bfdecbaea99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads RSI message from RS-485 bus, checks CRC.  <a href="#aafae55bf54635b310a281bfdecbaea99"></a><br/></td></tr>
-<tr class="memitem:a86a65eb7bb1899ba1dc7df8311a642a5"><td class="memItemLeft" align="right" valign="top">sInt32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#a86a65eb7bb1899ba1dc7df8311a642a5">rsi_validateFrame</a> (uInt8_t *buffer, uInt16_t msgLength)</td></tr>
+<tr class="memitem:a86a65eb7bb1899ba1dc7df8311a642a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commonTypes_8h.html#a0adf7b4789ee82df2f5fc873c9d7370d">sInt32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#a86a65eb7bb1899ba1dc7df8311a642a5">rsi_validateFrame</a> (<a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *buffer, <a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> msgLength)</td></tr>
 <tr class="memdesc:a86a65eb7bb1899ba1dc7df8311a642a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks CRC of frame.  <a href="#a86a65eb7bb1899ba1dc7df8311a642a5"></a><br/></td></tr>
-<tr class="memitem:a0baeb3ba4a120cae3e4c9eb6d0fd990e"><td class="memItemLeft" align="right" valign="top">sInt32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#a0baeb3ba4a120cae3e4c9eb6d0fd990e">rsi_handler</a> (uInt8_t *rsiRequestFrame, uInt8_t *rsiResponseFrame, sInt32_t *frameLength)</td></tr>
+<tr class="memitem:a0baeb3ba4a120cae3e4c9eb6d0fd990e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commonTypes_8h.html#a0adf7b4789ee82df2f5fc873c9d7370d">sInt32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mod__rsi_8c.html#a0baeb3ba4a120cae3e4c9eb6d0fd990e">rsi_handler</a> (<a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *rsiRequestFrame, <a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *rsiResponseFrame, <a class="el" href="commonTypes_8h.html#a0adf7b4789ee82df2f5fc873c9d7370d">sInt32_t</a> *frameLength)</td></tr>
 <tr class="memdesc:a0baeb3ba4a120cae3e4c9eb6d0fd990e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for RSI messages.  <a href="#a0baeb3ba4a120cae3e4c9eb6d0fd990e"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
@@ -133,19 +133,19 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void dbg_print_msg </td>
           <td>(</td>
-          <td class="paramtype">uInt16_t&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td>
           <td class="paramname"><em>write</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uInt8_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *&#160;</td>
           <td class="paramname"><em>buf</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uInt16_t&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -173,9 +173,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uInt16_t rsi_close </td>
+          <td class="memname"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> rsi_close </td>
           <td>(</td>
-          <td class="paramtype">uInt16_t&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td>
           <td class="paramname"><em>fd</em></td><td>)</td>
           <td></td>
         </tr>
@@ -198,21 +198,21 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">sInt32_t rsi_handler </td>
+          <td class="memname"><a class="el" href="commonTypes_8h.html#a0adf7b4789ee82df2f5fc873c9d7370d">sInt32_t</a> rsi_handler </td>
           <td>(</td>
-          <td class="paramtype">uInt8_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *&#160;</td>
           <td class="paramname"><em>rsiRequestFrame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uInt8_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *&#160;</td>
           <td class="paramname"><em>rsiResponseFrame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">sInt32_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a0adf7b4789ee82df2f5fc873c9d7370d">sInt32_t</a> *&#160;</td>
           <td class="paramname"><em>frameLength</em>&#160;</td>
         </tr>
         <tr>
@@ -241,7 +241,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uInt16_t rsi_open </td>
+          <td class="memname"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> rsi_open </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -260,15 +260,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uInt16_t rsi_read </td>
+          <td class="memname"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> rsi_read </td>
           <td>(</td>
-          <td class="paramtype">uInt16_t&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td>
           <td class="paramname"><em>fd</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uInt8_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *&#160;</td>
           <td class="paramname"><em>buffer</em>&#160;</td>
         </tr>
         <tr>
@@ -296,15 +296,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">sInt32_t rsi_validateFrame </td>
+          <td class="memname"><a class="el" href="commonTypes_8h.html#a0adf7b4789ee82df2f5fc873c9d7370d">sInt32_t</a> rsi_validateFrame </td>
           <td>(</td>
-          <td class="paramtype">uInt8_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uInt16_t&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td>
           <td class="paramname"><em>msgLength</em>&#160;</td>
         </tr>
         <tr>
@@ -332,21 +332,21 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uInt16_t rsi_write </td>
+          <td class="memname"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> rsi_write </td>
           <td>(</td>
-          <td class="paramtype">uInt16_t&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td>
           <td class="paramname"><em>fd</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uInt8_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uInt16_t&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td>
           <td class="paramname"><em>numBytes</em>&#160;</td>
         </tr>
         <tr>
@@ -373,7 +373,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 7 2014 09:15:47 for RSI by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 7 2014 13:24:26 for RSI by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

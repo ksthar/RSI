@@ -1,12 +1,13 @@
-/*
- * serial.c  - rename! --> this is RS485 specific uart layer,
- * 						     it knows nothing about the RSI protocol...
- *
- *  Created on: May 21, 2014
- *      Author: kbroerman
- *
- *  HAR NOTE: commented-out bit bangs to make compatible with std UART, also
- *  commented-out GPIO calls until the i.MX28 ifc is defined.
+/** 
+ * @file serial.c
+ * @brief RS485 specific UART layer
+ * @author Keith Broerman
+ * @version 0.1
+ * @date 2014-05-21
+ * @note	HS: commented-out bit bangs to make compatible with std UART,
+ * 			also commented-out GPIO calls while i.MX28 GPIO is undefined.
+ * 			KB: rename! --> this is RS485 specific uart layer, it knows nothing
+ * 			about the RSI protocol...
  */
 
 #include <stdlib.h>
@@ -23,6 +24,13 @@
 #include "gpio.h"
 #include "misc.h"
 
+/* ****************************************************************** */
+/** 
+ * @brief RX enable
+ * 
+ * @return None
+ */
+/* ****************************************************************** */
 uInt16_t rs485_rcvEnable(void)
 {
 	//RS485 RE/ (APx4 receive)
@@ -31,6 +39,13 @@ uInt16_t rs485_rcvEnable(void)
 	delayuS(25);	//let it settle...
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief RX disable
+ * 
+ * @return None
+ */
+/* ****************************************************************** */
 uInt16_t rs485_rcvDisable(void)
 {
 	//RS485 RE/ (APx4 receive)
@@ -38,6 +53,13 @@ uInt16_t rs485_rcvDisable(void)
 	delayuS(25);	//let it settle...
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief TX enable
+ * 
+ * @return None
+ */
+/* ****************************************************************** */
 uInt16_t rs485_xmitEnable(void)
 {
 	//RS485 DE (APx4 transmit)
@@ -45,6 +67,13 @@ uInt16_t rs485_xmitEnable(void)
 	delayuS(25);	//let it settle...
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief TX disable
+ * 
+ * @return None
+ */
+/* ****************************************************************** */
 uInt16_t rs485_xmitDisable(void)
 {
 	//RS485 DE (APx4 transmit)
@@ -52,12 +81,17 @@ uInt16_t rs485_xmitDisable(void)
 	delayuS(25);	//let it settle...
 }
 
-//inputs:
-//		fd:     uart file descriptor
-//		count:	number of bytes to wait for
-//		buffer: receive buffer
-//
-//returns bytes received
+/* ****************************************************************** */
+/** 
+ * @brief 				Read from RS-485 UART
+ * 
+ * @param fd			UART file descriptor
+ * @param buffer		Receive buffer
+ * @param requested		Number of bytes to read
+ * 
+ * @return 				Number of bytes actually read
+ */
+/* ****************************************************************** */
 uInt16_t rs485_read( uInt16_t fd, uInt8_t *buffer, uInt16_t requested )
 {
 	if (fd == -1) return -1;
@@ -79,12 +113,17 @@ uInt16_t rs485_read( uInt16_t fd, uInt8_t *buffer, uInt16_t requested )
 	return actual;
 }
 
-//inputs:
-//		fd:     uart file descriptor
-//		count:	number of bytes to write
-//		buffer: transmit buffer
-//
-//returns bytes sent
+/* ****************************************************************** */
+/** 
+ * @brief 				Write to RS-485 UART
+ * 
+ * @param fd			UART file descriptor
+ * @param buffer		Transmit buffer
+ * @param requested		Bytes to transmit
+ * 
+ * @return 				Bytes written
+ */
+/* ****************************************************************** */
 uInt16_t rs485_write( uInt16_t fd, uInt8_t *buffer, uInt16_t requested )
 {
 	if (fd == -1) return -1;
@@ -104,6 +143,13 @@ uInt16_t rs485_write( uInt16_t fd, uInt8_t *buffer, uInt16_t requested )
 	return actual;
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief 	Open RS-485 UART
+ * 
+ * @return 	File descriptor of UART
+ */
+/* ****************************************************************** */
 uInt16_t rs485_open(void)
 {
 	//export gpios 41 (RS485 RE/) & 42 (RS485 DE) so userspace can control RS485 transceiver output enables:
@@ -210,6 +256,15 @@ uInt16_t rs485_open(void)
 	return uart2_fd;
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief 		Close RS-485 UART
+ * 
+ * @param fd	UART file descriptor
+ * 
+ * @return 		None
+ */
+/* ****************************************************************** */
 uInt16_t rs485_close(uInt16_t fd)
 {
 	close(fd);
@@ -222,6 +277,15 @@ uInt16_t rs485_close(uInt16_t fd)
 
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief 			Set VMIN/VTIME to tweak UART performance
+ * 
+ * @param fd		UART file descriptor
+ * @param vmin		VMIN (termios)
+ * @param vtime		VTIME (termios)
+ */
+/* ****************************************************************** */
 void rs485UartVminVtime( uInt16_t fd, uInt16_t vmin, uInt16_t vtime )
 {
 	struct termios options;

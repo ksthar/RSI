@@ -67,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,19 +95,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;signal.h&gt;</code><br/>
 <code>#include &lt;fcntl.h&gt;</code><br/>
 <code>#include &lt;termios.h&gt;</code><br/>
-<code>#include &quot;commonTypes.h&quot;</code><br/>
-<code>#include &quot;mod_rsi.h&quot;</code><br/>
-<code>#include &quot;led.h&quot;</code><br/>
-<code>#include &quot;mod_socket.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="commonTypes_8h_source.html">commonTypes.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="mod__rsi_8h_source.html">mod_rsi.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="mod__socket_8h_source.html">mod_socket.h</a>&quot;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abbe3f5ed2a4c2e01da03bb1f1ee1b614"><td class="memItemLeft" align="right" valign="top">uInt16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rsiTest_8c.html#abbe3f5ed2a4c2e01da03bb1f1ee1b614">readSocketBuffer</a> (uInt16_t conn)</td></tr>
+<tr class="memitem:abbe3f5ed2a4c2e01da03bb1f1ee1b614"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rsiTest_8c.html#abbe3f5ed2a4c2e01da03bb1f1ee1b614">readSocketBuffer</a> (<a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> conn)</td></tr>
 <tr class="memdesc:abbe3f5ed2a4c2e01da03bb1f1ee1b614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads SOCKET_BUFFER_SIZE chars from socket.  <a href="#abbe3f5ed2a4c2e01da03bb1f1ee1b614"></a><br/></td></tr>
-<tr class="memitem:aa42c674e08e7621a4105c64b3390d1ba"><td class="memItemLeft" align="right" valign="top">uInt16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rsiTest_8c.html#aa42c674e08e7621a4105c64b3390d1ba">writeSocketBuffer</a> (uInt16_t conn)</td></tr>
+<tr class="memitem:aa42c674e08e7621a4105c64b3390d1ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rsiTest_8c.html#aa42c674e08e7621a4105c64b3390d1ba">writeSocketBuffer</a> (<a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> conn)</td></tr>
 <tr class="memdesc:aa42c674e08e7621a4105c64b3390d1ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes message to socket.  <a href="#aa42c674e08e7621a4105c64b3390d1ba"></a><br/></td></tr>
-<tr class="memitem:aa865300fb673fb609fa8c2ffd04c2571"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa865300fb673fb609fa8c2ffd04c2571"></a>
-uInt16_t&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (void)</td></tr>
+<tr class="memitem:aa865300fb673fb609fa8c2ffd04c2571"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rsiTest_8c.html#aa865300fb673fb609fa8c2ffd04c2571">main</a> (void)</td></tr>
+<tr class="memdesc:aa865300fb673fb609fa8c2ffd04c2571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main; waits for RSI command, handles it, and optionally sets up a socket to communicate with the BLE process.  <a href="#aa865300fb673fb609fa8c2ffd04c2571"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Test app to exercise the RSI -&gt; BLE connection. </p>
@@ -122,14 +122,33 @@ uInt16_t&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (void)</
 </ul>
 <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS-IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. </p>
 </div><h2>Function Documentation</h2>
+<a class="anchor" id="aa865300fb673fb609fa8c2ffd04c2571"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Main; waits for RSI command, handles it, and optionally sets up a socket to communicate with the BLE process. </p>
+<dl class="section return"><dt>Returns</dt><dd>STATUS_SUCCESS on success </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="abbe3f5ed2a4c2e01da03bb1f1ee1b614"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uInt16_t readSocketBuffer </td>
+          <td class="memname"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> readSocketBuffer </td>
           <td>(</td>
-          <td class="paramtype">uInt16_t&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td>
           <td class="paramname"><em>conn</em></td><td>)</td>
           <td></td>
         </tr>
@@ -152,9 +171,9 @@ uInt16_t&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (void)</
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uInt16_t writeSocketBuffer </td>
+          <td class="memname"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> writeSocketBuffer </td>
           <td>(</td>
-          <td class="paramtype">uInt16_t&#160;</td>
+          <td class="paramtype"><a class="el" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a>&#160;</td>
           <td class="paramname"><em>conn</em></td><td>)</td>
           <td></td>
         </tr>
@@ -175,7 +194,7 @@ uInt16_t&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (void)</
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 7 2014 09:15:47 for RSI by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 7 2014 13:24:26 for RSI by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -1,8 +1,9 @@
-/*
- * crc.h
- *
- *  Created on: May 22, 2014
- *      Author: kbroerman
+/** 
+ * @file crc.h
+ * @brief Header file for crc.c
+ * @author Keith Broerman
+ * @version 0.1
+ * @date 2014-05-22
  */
 
 #ifndef CRC_H_
@@ -10,15 +11,15 @@
 
 #include "commonTypes.h"
 
-#define CRC_SIZE		(2)
-#define CRC_LSB_INDEX	(0)
-#define CRC_MSB_INDEX	(1)
-#define CRC_TBL_SIZE    (256)
-#define LSB_MASK        (0x00FF)
-#define MSB_MASK        (0xFF00)
-#define BYTE_SIZE       (8)
+#define CRC_SIZE		(2)			/**< Number of bytes in CRC */
+#define CRC_LSB_INDEX	(0)			/**< Index for LSB 			*/
+#define CRC_MSB_INDEX	(1)			/**< Index for MSB			*/
+#define CRC_TBL_SIZE    (256)		/**< CRC table size			*/
+#define LSB_MASK        (0x00FF)	/**< LSB mask				*/
+#define MSB_MASK        (0xFF00)	/**< MSB mask				*/
+#define BYTE_SIZE       (8)			/**< Bits per byte			*/
 
-uInt16_t gTable[CRC_TBL_SIZE]; // Global CRC Table
+uInt16_t gTable[CRC_TBL_SIZE]; 		/**< Global CRC Table		*/
 
 void printTable(void);
 void buildXmodem(void);

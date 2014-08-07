@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,37 +82,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">serial.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * serial.h</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: May 21, 2014</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: kbroerman</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<a href="serial_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef SERIAL_H_</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SERIAL_H_</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define SERIAL_DEVICE   &quot;/dev/ttyS0&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;uInt16_t rs485_open(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;uInt16_t rs485_close(uInt16_t fd);</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="serial_8h.html#aff330cb4446d20e748d2e4ac2e97c8dc">   11</a></span>&#160;<span class="preprocessor">#define SERIAL_DEVICE   &quot;/dev/ttyS0&quot;            </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">uInt16_t rs485_open(void);</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> <a class="code" href="serial_8c.html#a95c1c475c8b874ee83e72be144cc5a6c" title="Close RS-485 UART.">rs485_close</a>(<a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> fd);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;uInt16_t rs485_rcvEnable(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;uInt16_t rs485_rcvDisable(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;uInt16_t rs485_xmitEnable(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;uInt16_t rs485_xmitDisable(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> <a class="code" href="serial_8c.html#a500569cb4e607e9eac4a67d4da78f9db" title="RX enable.">rs485_rcvEnable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> <a class="code" href="serial_8c.html#a74093091ed54d4494ac8529285a111bb" title="RX disable.">rs485_rcvDisable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> <a class="code" href="serial_8c.html#aa1a00f2c66b73b93265b376dd38e5ddc" title="TX enable.">rs485_xmitEnable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> <a class="code" href="serial_8c.html#a1dbc82a1521a890e7ef64b61baf2b490" title="TX disable.">rs485_xmitDisable</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;uInt16_t rs485_read( uInt16_t fd, uInt8_t *buffer, uInt16_t requested );</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;uInt16_t rs485_write( uInt16_t fd, uInt8_t *buffer, uInt16_t requested );</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> <a class="code" href="serial_8c.html#a3f44692f3c8df779fb2387bbcc56817c" title="Read from RS-485 UART.">rs485_read</a>( <a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> fd, <a class="code" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *buffer, <a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> requested );</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> <a class="code" href="serial_8c.html#a0b9850b99c484a19fdd1fe402106e435" title="Write to RS-485 UART.">rs485_write</a>( <a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> fd, <a class="code" href="commonTypes_8h.html#a6198d447c788bec2c9e297e0c94d93f9">uInt8_t</a> *buffer, <a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> requested );</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> rs485TimedRead( uInt16_t fd, uInt16_t enabled );</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> rs485UartVminVtime( uInt16_t fd, uInt16_t vmin, uInt16_t vtime );</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//void rs485TimedRead( uInt16_t fd, uInt16_t enabled );</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="serial_8c.html#a8caef18e03b986ed12022bdaf8255ae4" title="Set VMIN/VTIME to tweak UART performance.">rs485UartVminVtime</a>( <a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> fd, <a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> vmin, <a class="code" href="commonTypes_8h.html#a39ff2b8530b8753c031c9daa9ef80a8f">uInt16_t</a> vtime );</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SERIAL_H_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 7 2014 09:15:47 for RSI by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 7 2014 13:24:26 for RSI by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

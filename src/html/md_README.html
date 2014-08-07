@@ -61,7 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -77,21 +77,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><ul>
-<li><em><a class="el" href="commonTypes_8h_source.html">commonTypes.h</a></em>: typedefs for the Gateway project</li>
-<li><em>crc.c/h</em>: CRC routine for RSI protocol</li>
-<li><em>gpio.c/h</em>: GPIO commands (not used for Eval test)</li>
-<li><em>led.c/h</em>: LED control (not used for Eval test)</li>
-<li><em>misc.c/h</em>: Timer helper functions</li>
+<li><em><a class="el" href="commonTypes_8h.html" title="Type definitions for the Allegion Gateway project This file contains common naming conventions used f...">commonTypes.h</a></em>: typedefs for the Gateway project</li>
+<li><em><a class="el" href="crc_8c.html" title="CRC and Checksum calculation for RSI protocol. Contains function implementation for CRC and Checksum ...">crc.c</a>/h</em>: CRC routine for RSI protocol</li>
+<li><em><a class="el" href="gpio_8c.html" title="Initialize GPIO pins.">gpio.c</a>/h</em>: GPIO commands (not used for Eval test)</li>
+<li><em><a class="el" href="led_8c.html" title="Set tricolor LED color.">led.c</a>/h</em>: LED control (not used for Eval test)</li>
+<li><em><a class="el" href="misc_8c.html" title="Helper functions for gateway.">misc.c</a>/h</em>: Timer helper functions</li>
 <li><em><a class="el" href="mod__rsi_8c.html" title="Interface to RSI commands.">mod_rsi.c</a>/h</em>: RSI module, interface to RSI commands</li>
-<li><em>mod_socket.c/h</em>: Socket module; IPC between RSI and BLE is domain socket</li>
-<li><em>rsi_commands.c/h</em>: handlers for specific RSI commands</li>
+<li><em><a class="el" href="mod__socket_8c.html" title="Creates and provides control to a domain socket (stream) used to communicate with BLE process (client...">mod_socket.c</a>/h</em>: Socket module; IPC between RSI and BLE is domain socket</li>
+<li><em><a class="el" href="rsi__commands_8c.html" title="Handler for each RSI command.">rsi_commands.c</a>/h</em>: handlers for specific RSI commands</li>
 <li><em><a class="el" href="rsiTest_8c.html" title="Test app to exercise the RSI -&gt; BLE connection.">rsiTest.c</a>/h</em>: Test app to exercise the RSI -&gt; BLE interface</li>
-<li><em>serial.c/h</em>: sets up the UART interface for RS-485 (RSI) </li>
+<li><em><a class="el" href="serial_8c.html" title="RS485 specific UART layer.">serial.c</a>/h</em>: sets up the UART interface for RS-485 (RSI) </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 7 2014 09:15:47 for RSI by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 7 2014 13:24:26 for RSI by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

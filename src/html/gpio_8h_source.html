@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,36 +82,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">gpio.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * gpio.h</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: May 22, 2014</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: kbroerman</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef GPIO_H_</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GPIO_H_</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define GPIO_41                 (41)</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GPIO_42                 (42)</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RS485_RE                (GPIO_41)</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RS485_DE                (GPIO_42)</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define GPIO_44                 (44)</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GPIO_45                 (45)</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RS485_LED_GREEN (GPIO_44)               //Tx</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RS485_LED_RED   (GPIO_45)               //Rx</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">int</span> gpio_init(<span class="keywordtype">int</span> gpio);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">int</span> gpio_deinit(<span class="keywordtype">int</span> gpio);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">int</span> gpio_setValue(<span class="keywordtype">int</span> gpio, <span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<a href="gpio_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef GPIO_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GPIO_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="gpio_8h.html#a36d68eeaad3811d28830f939cccf433e">   12</a></span>&#160;<span class="preprocessor">#define GPIO_41                 (41)                    </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="gpio_8h.html#af7a4384a301182bd05c98ef52f1d29bb">   13</a></span>&#160;<span class="preprocessor">#define GPIO_42                 (42)                    </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="gpio_8h.html#af0145ba9904e04ca48856dc318d85051">   14</a></span>&#160;<span class="preprocessor">#define RS485_RE                (GPIO_41)               </span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="gpio_8h.html#abfb2c7cbf18e1bca41454f99b511533c">   15</a></span>&#160;<span class="preprocessor">#define RS485_DE                (GPIO_42)               </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="gpio_8h.html#a5d29239143e23cf8533cba385b891d04">   17</a></span>&#160;<span class="preprocessor">#define GPIO_44                 (44)                    </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="gpio_8h.html#a82aa237c379909cb685705ed4ce0dcca">   18</a></span>&#160;<span class="preprocessor">#define GPIO_45                 (45)                    </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="gpio_8h.html#a743185ddf41ad9b908d757e4f0efe0e0">   19</a></span>&#160;<span class="preprocessor">#define RS485_LED_GREEN (GPIO_44)               </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="gpio_8h.html#a019163c0df048ea125acd0b4457ccca4">   20</a></span>&#160;<span class="preprocessor">#define RS485_LED_RED   (GPIO_45)               </span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">int gpio_init(int gpio);</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="keywordtype">int</span> <a class="code" href="gpio_8c.html#afe39e538b823d9d9b14b555744ebf567" title="Define GPIO pins to unexport.">gpio_deinit</a>(<span class="keywordtype">int</span> gpio);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">int</span> <a class="code" href="gpio_8c.html#a0e8d194eb08650a6e9dd6294fdc7c9e1" title="Set value (high/low) of pin.">gpio_setValue</a>(<span class="keywordtype">int</span> gpio, <span class="keywordtype">int</span> value);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GPIO_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GPIO_H_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 7 2014 09:15:47 for RSI by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 7 2014 13:24:26 for RSI by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

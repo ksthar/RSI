@@ -1,10 +1,10 @@
-/*
- * misc.h
- *
- *  Created on: May 22, 2014
- *      Author: kbroerman
+/** 
+ * @file misc.h
+ * @brief Header for misc.c
+ * @author Keith Broerman
+ * @version 0.1
+ * @date 2014-05-22
  */
-
 #ifndef MISC_H_
 #define MISC_H_
 

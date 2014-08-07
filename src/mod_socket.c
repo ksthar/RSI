@@ -1,10 +1,10 @@
-/**
- * @name rsiSocket.c
- * @date July 29, 2014
- * @author Harlan
- *
- *	Creates and provides control to a domain socket (stream) used to
- *	communicate with the BLE process (client).
+ /** 
+ * @file mod_socket.c
+ * @brief Creates and provides control to a domain socket (stream) used to
+ * 			communicate with BLE process (client).
+ * @author Harlan Shoop
+ * @version 0.1
+ * @date 2014-08-07
  *
  */
 
@@ -19,8 +19,6 @@
 #include <fcntl.h>
 
 #include "mod_socket.h"
-
-#define		DEBUG
 
 // ======================= SET UP SOCKET ==========================
 /** 

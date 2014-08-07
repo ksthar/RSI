@@ -1,8 +1,9 @@
-/*
- * gpio.c
- *
- *  Created on: May 22, 2014
- *      Author: kbroerman
+/** 
+ * @file gpio.c
+ * @brief Initialize GPIO pins
+ * @author Keith Broerman
+ * @version 0.1
+ * @date 2014-05-22
  */
 
 #include <stdio.h>
@@ -10,6 +11,15 @@
 #include <fcntl.h>
 #include "gpio.h"
 
+/* ****************************************************************** */
+/** 
+ * @brief Define GPIO pins to export
+ * 
+ * @param gpio	Pin number to export
+ * 
+ * @return file descriptor
+ */
+/* ****************************************************************** */
 int gpio_init(int gpio)
 {
 	//export gpio so userspace can tweek it:
@@ -24,6 +34,15 @@ int gpio_init(int gpio)
 	return fd;
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief Define GPIO pins to unexport
+ * 
+ * @param gpio Pin number to unexport
+ * 
+ * @return file descriptor 
+ */
+/* ****************************************************************** */
 int gpio_deinit(int gpio)
 {
 	//unexport gpio:
@@ -38,6 +57,16 @@ int gpio_deinit(int gpio)
 	return fd;
 }
 
+/* ****************************************************************** */
+/** 
+ * @brief Set value (high/low) of pin
+ * 
+ * @param gpio 	Pin number
+ * @param value Value to set true=high, false=low
+ * 
+ * @return 
+ */
+/* ****************************************************************** */
 int gpio_setValue(int gpio, int value)
 {
 	char buf[60];
