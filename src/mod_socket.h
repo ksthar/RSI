@@ -13,9 +13,7 @@
 #include "commonTypes.h"
 
 #define	UNIX_PATH_MAX	108					/**< Max path length 		*/
-#define	READ	0							/**< Read					*/
-#define	WRITE 1								/**< Write					*/
-#define SOCKET_ADDR 	"./demo_socket"		/**< Socket name			*/
+#define SOCKET_ADDR 	"./rsi_socket"		/**< Socket name			*/
 #define SOCKET_BUFFER_SIZE	256				/**< Size of socket buffer	*/
 
 uInt16_t sock_open( struct sockaddr_un *address );

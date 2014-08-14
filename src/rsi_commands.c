@@ -116,7 +116,8 @@ sInt32_t processPollApm(uInt8_t * rsiResponseFrame)
  * @param rsiRequestFrame	Request data containing time
  * @param rsiResponseFrame	Response to APC
  * 
- * @return Response frame length on success
+ * @note	Byte 5 is 'seconds to unlock'
+ * @return 	Response frame length on success
  */
 /* ****************************************************************** */
 sInt32_t processApmTimedUnlock(uInt8_t * rsiRequestFrame, uInt8_t * rsiResponseFrame)
@@ -136,9 +137,9 @@ sInt32_t processApmTimedUnlock(uInt8_t * rsiRequestFrame, uInt8_t * rsiResponseF
 
     }
 
-    //pass info to BLE task... (non-blocking: send a message...)
     secondsToUnlock = rsiRequestFrame[4];
     printf("timed unlock: %d\n", secondsToUnlock);
+    //pass info to BLE task... (non-blocking: send a message...)
 
     return (frameLength);
 }

@@ -4,5 +4,6 @@
 .deps
 Makefile.in
 Makefile
-POC_0528
+RSI
 *.o
+*.swp
